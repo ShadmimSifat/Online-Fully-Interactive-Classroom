@@ -1,0 +1,3 @@
+Jane, 2705455, CSE
+John, 2705456, CSE
+Jenny, 2705467, CSE

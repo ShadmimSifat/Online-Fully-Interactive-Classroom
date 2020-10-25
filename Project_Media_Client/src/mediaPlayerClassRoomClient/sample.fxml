@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="rootHB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mediaPlayerClassRoomClient.sampleController">
+   <children>
+      <VBox fx:id="rootVBox" prefHeight="409.0" prefWidth="569.0" HBox.hgrow="ALWAYS">
+         <children>
+            <HBox fx:id="munuBox" prefHeight="25.0" prefWidth="600.0" VBox.vgrow="NEVER">
+               <children>
+                  <HBox prefHeight="25.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <MenuBar fx:id="menuBar" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="468.0" HBox.hgrow="ALWAYS">
+                           <menus>
+                              <Menu mnemonicParsing="false" text="Media">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#openSingleFileButtonClicked" text="Open File" />
+                                    <MenuItem mnemonicParsing="false" onAction="#openMultiFileMenuClicked" text="Open Multiple Files" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exitSystemButton" text="Exit" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Video">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#resetColor" text="Reset Color Adjustment ">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#increaseBrightness" text="Brightness +1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#decreaseBrightness" text="Brightness -1% ">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#increaseHue" text="Hue +1% ">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="R" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator></MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#decreaseHue" text="Hue -1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#increaseSaturation" text="Saturation +1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#decreaseSaturation" text="Saturation -1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="U" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#increaseContrast" text="Contrast +1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#decreaseContrast" text="Contrast -1%">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Subtitle">
+                                 <items>
+                                    <MenuItem fx:id="loadSub" mnemonicParsing="false" onAction="#subLoad" text="Load" />
+                                    <MenuItem fx:id="subClear" mnemonicParsing="false" text="Clear" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false">
+                                 <graphic>
+                                    <Label fx:id="nowPlaying" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="200.0" textFill="#0474d6" textOverrun="CENTER_ELLIPSIS">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <effect>
+                                          <Glow />
+                                       </effect>
+                                    </Label>
+                                 </graphic>
+                              </Menu>
+                              <Menu mnemonicParsing="false">
+                                 <graphic>
+                                    <ToggleButton fx:id="showConsoleButton" mnemonicParsing="false" text="ClassRoom" />
+                                 </graphic>
+                              </Menu>
+                           </menus>
+                        </MenuBar>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="0.0" visible="false" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="minimize" mnemonicParsing="false" onAction="#minimizeClicked" />
+                        <Button fx:id="maximize" mnemonicParsing="false" onAction="#maximizeClicked" />
+                        <Button fx:id="close" mnemonicParsing="false" onAction="#exitClicked" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <StackPane fx:id="stackPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#dragdropdrop" onDragOver="#dragDropOver" prefHeight="290.0" prefWidth="535.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <MediaView fx:id="mediaView">
+<!--                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>-->
+                  </MediaView>
+                  <Label fx:id="closedCaption" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" style="-fx-background-color: Black;" textAlignment="CENTER" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <VBox fx:id="lowerVbox" prefHeight="13.0" prefWidth="569.0" VBox.vgrow="NEVER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <JFXSlider fx:id="seekSlider" prefHeight="0.0" prefWidth="569.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="lowestVbox" prefHeight="55.0" prefWidth="569.0" VBox.vgrow="NEVER">
+                     <children>
+                        <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="41.0" prefWidth="328.0">
+                           <children>
+                              <Button fx:id="playPauseButton" mnemonicParsing="false" onAction="#playPauseButtonClicked" prefHeight="10.0" prefWidth="10.0" HBox.hgrow="NEVER">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <tooltip><Tooltip text="Play/Pause" /></tooltip>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stopButtonClicked" prefHeight="10.0" prefWidth="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <tooltip><Tooltip text="Stop" /></tooltip>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="backwardButton" mnemonicParsing="false" onAction="#backwardButtonClicked" prefHeight="10.0" prefWidth="10.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <tooltip><Tooltip text="Playback Speed --" /></tooltip>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#forwardButtonClicked" prefHeight="25.0" prefWidth="23.0">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                                 <tooltip><Tooltip text="Playback Speed ++" /></tooltip>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <VBox alignment="CENTER" prefHeight="41.0" prefWidth="44.0" spacing="5.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="currentTimeLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="70.0" text="label" />
+                                          <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="20.0" text="/" />
+                                          <Label fx:id="totalTimeLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="70.0" text="Label">
+                                             <font>
+                                                <Font name="Lucida Bright Regular" size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <Button fx:id="volumeButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#volumeButtonClicked" prefHeight="25.0" prefWidth="0.0">
+                              <tooltip><Tooltip text="Mute" /></tooltip>
+                              </Button>
+                              <JFXSlider fx:id="volumeSlider" prefHeight="14.0" prefWidth="161.0" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            <HBox fx:id="teacherConsole" prefHeight="154.0" prefWidth="548.0" VBox.vgrow="NEVER">
+               <children>
+                  <VBox prefHeight="94.0" prefWidth="477.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="484.0" text="ClassRoom Videos" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="videoTable" prefHeight="200.0" prefWidth="477.0">
+                           <columns>
+                              <TableColumn fx:id="titleColumn" prefWidth="399.0" text="Title" />
+                              <TableColumn fx:id="videoSelectColumn" maxWidth="307.0" minWidth="0.0" prefWidth="70.0" resizable="false" text="Select" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="94.0" prefWidth="72.0">
+                     <children>
+                        <Button fx:id="playDownloaded" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#playDownloadedHandle" text="Play " />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox fx:id="chatBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="467.0" HBox.hgrow="ALWAYS">
+         <children>
+            <AnchorPane id="AnchorPane" fx:id="acPenRoot" prefHeight="468.0" prefWidth="430.0" VBox.vgrow="SOMETIMES">
+   <children>
+      <Pane fx:id="pane1" prefHeight="468.0" prefWidth="170.0" style="-fx-background-color: #242A31;" AnchorPane.rightAnchor="297.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="profileImage" fitHeight="77.0" fitWidth="53.0" layoutX="28.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user1.png" />
+               </image>
+                           <viewport>
+                              <Rectangle2D height="50.0" width="50.0" />
+                           </viewport>
+            </ImageView>
+            <Label fx:id="addProfilePicture" layoutX="104.0" layoutY="42.0" onMouseClicked="#addImage" prefHeight="17.0" prefWidth="20.0" text="..." textFill="#8a8484">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="54.0" layoutY="252.0" mnemonicParsing="false" onAction="#clientHandle" text="Connect" />
+                        <Label layoutX="20.0" layoutY="294.0" text="Student Name:" textFill="#11ff00">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="338.0" text="  Department:" textFill="#11ff00">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="145.0" text=" Student ID:" textFill="#11ff00">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="stdName" layoutX="21.0" layoutY="313.0" prefHeight="25.0" prefWidth="130.0" promptText="No Input" />
+                        <TextField fx:id="stdID" layoutX="19.0" layoutY="164.0" prefHeight="25.0" prefWidth="130.0" promptText="Enter ID" text="2705455" />
+                        <TextField fx:id="stdDept" layoutX="19.0" layoutY="366.0" prefHeight="25.0" prefWidth="130.0" promptText="No Input" />
+                        <ToggleButton fx:id="editProfile" layoutX="20.0" layoutY="403.0" mnemonicParsing="false" text="Edit Profile" visible="false" />
+                        <TextField fx:id="ipInput" layoutX="21.0" layoutY="215.0" prefHeight="25.0" prefWidth="130.0" promptText="Enter IP Address" text="localhost" />
+                        <Label layoutX="17.0" layoutY="196.0" text=" Teacher's Address:" textFill="#11ff00">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="68.0" layoutY="294.0" startX="-69.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="165.0" layoutY="415.0" prefHeight="53.0" prefWidth="288.0">
+         <children>
+            <TextArea fx:id="message" disable="true" layoutX="12.0" layoutY="5.0" prefHeight="38.0" prefWidth="218.0" promptText="Enter Your Message" />
+            <Button fx:id="send" disable="true" layoutX="231.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendHandle" text="Send" />
+         </children>
+      </Pane>
+      <ScrollPane fx:id="messagePane" layoutX="169.0" prefHeight="405.0" prefViewportHeight="500.0" prefWidth="298.0">
+         <content>
+            <VBox fx:id="apMessage" prefHeight="398.0" prefWidth="296.0">
+               <children>
+                  <Label text="                        Message Thread" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="290.0" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,395 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 8, 2019, 12:21:17 AM
+    Author     : Shayekh Bin Islam
+*/
+
+.root{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Courier";
+    
+}
+
+.label{
+    
+    /*-fx-font: bold 14pt "Courier";*/
+    
+}
+#rootVBox{
+    /*-fx-border-radius: 30;*/
+    /*-fx-border-width: 3;*/
+    -fx-border-color: grey;
+    
+}
+
+#stackPane{
+    -fx-background-color : grey;
+}
+
+#close{
+    -fx-graphic: url("/images_and_data/exit.png");
+}
+#maximize{
+    -fx-graphic: url("/images_and_data/maximize.png");
+}
+
+#minimize{
+    -fx-graphic: url("/images_and_data/minimize.png");
+}
+
+#currentTimeLabel{
+    /*-fx-width : 150;*/
+}
+
+/*#button{
+    -fx-background-color: #3c7fb1,linear-gradient(#fafdfe, #e8f5fc),linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);;
+    -fx-background-radius: 3,2,1;
+    -fx-background-insets: 0,1,2;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+     -fx-font-size: 14px;
+    
+}*/
+#AnchorPane{
+    -fx-text-fill: red;
+}
+#label{
+    -fx-text-fill: green;
+}
+
+#stopButton {
+    -fx-graphic: url("/images_and_data/stop37w.png");
+}
+
+#backwardButton{
+    -fx-graphic: url("/images_and_data/seekLeft.png");
+}
+#forwardButton{
+    -fx-graphic: url("/images_and_data/seekRight.png");
+}
+
+/*#button{
+ -fx-width: 74px;
+  -fx-height: 74px;
+  -fx-border-style: solid;
+  -fx-border-width: 37px;
+ -fx-border-color: #202020;
+ 
+  -fx-border-width: 37px 37px 37px 37px;
+   -fx-border-color: red blue green yellow;
+ -fx-border-width: 37px 0px 37px 74px;
+   -fx-border-color: red blue green yellow;
+   -fx-box-sizing: border-box;
+     -fx-width: 74px;
+     -fx-height: 74px;
+     -fx-border-width: 37px 0px 37px 74px;
+     -fx-border-color: transparent transparent transparent #202020;
+ 
+  }*/
+
+/*...................................................................................................*/
+
+/*Windows theme starts*/
+
+#headline
+{
+    -fx-font-size: 24px;
+}
+
+#header
+{
+    -fx-background-color: #ccc;
+}
+
+.root
+{
+    /*-fx-background-color: rgb(238,238,238);*/
+       -fx-text-base-color: #000000;
+        -fx-font-family: "System";
+        -fx-font-size: 11px;
+}
+
+Text
+{
+-fx-font-smoothing-type: lcd;
+}
+
+.button
+{
+    -fx-background-color:
+        #707070,
+        linear-gradient(#fcfcfc, #f3f3f3),
+        linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 ;
+    -fx-text-fill: black;
+    -fx-font-size: 11px;
+}
+
+
+
+.button:default
+{
+    -fx-background-color:
+        #3c7fb1,
+        linear-gradient(#fafdfe, #e8f5fc),
+        linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 ;
+    -fx-text-fill: black;
+    -fx-font-size: 11px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * CheckBox                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+/*.check-box {
+    -fx-skin: "com.sun.javafx.scene.control.skin.CheckBoxSkin";
+    -fx-label-padding: 0.0em 0.0em 0.0em 0.416667em;  0 0 0 5 
+}
+
+.check-box Text {
+    -fx-font-smoothing-type: lcd;
+}
+
+.check-box:focused {
+    -fx-color: -fx-focused-base;
+}
+
+.check-box .text {
+   -fx-text-fill: -fx-text-background-color;
+}
+
+.check-box .box, .check-box:focused .box
+{
+    -fx-background-color:
+        #7C7C7C,
+        #FFFFFF,
+        linear-gradient(to bottom right, #A0A4A9, #E5E5E5),
+        linear-gradient(to bottom right, #BDC5CA, #F5F5F5);
+
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 0;
+    -fx-padding: 2.1;  3 -- padding from the outside edge to the mark 
+}
+
+
+.check-box:hover .box {
+    -fx-color: -fx-hover-base;
+}
+
+.check-box:armed .box {
+    -fx-color: -fx-pressed-base;
+}
+
+.check-box .mark {
+    -fx-background-color: transparent;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.333333em;  4 -- this is half the size of the mark 
+    -fx-shape: "M0,4H2L3,6L6,0H8L4,8H2Z";
+}
+
+ TODO: scale the shape - the problem is that it is not within a square
+ * boundary.
+ 
+.check-box:indeterminate .mark {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-shape: "M0,0H8V2H0Z";
+    -fx-scale-shape: false;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+}
+
+.check-box:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.check-box:show-mnemonics .mnemonic-underline {
+    -fx-stroke: -fx-text-fill;
+}*/
+
+
+/*******************************************************************************
+ *                                                                             *
+ * TextField                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+.text-input {
+    -fx-text-fill: #000000;
+    -fx-highlight-fill: #97BDFF;
+    -fx-highlight-text-fill: #000000;
+}
+
+.text-field {
+         -fx-skin: "com.sun.javafx.scene.control.skin.TextFieldSkin";
+         -fx-background-color:
+                linear-gradient(to bottom,  #9A9DA3 0%, #DBE3EB 100%),
+                #FFFFFF;
+
+         -fx-background-insets:
+                0,
+                1;
+
+         -fx-background-radius: 2;
+
+         -fx-padding: 3 5 3 5;
+         -fx-prompt-text-fill: derive(-fx-control-inner-background,-30%);
+         -fx-cursor: text;
+     }
+
+
+.text-field Text {
+    -fx-font-smoothing-type: lcd;
+}
+
+.text-field:focused
+{
+     -fx-background-color:
+                linear-gradient(to bottom, #678AAF 0%, #7599BF 100%),
+                linear-gradient(to bottom, #B2C5D8 0%, #CBDEF2 100%),
+                #F2F2F2,
+                #FFFFFF;
+
+         -fx-background-insets:
+                0,
+                1 1 1 1,
+                2 2 2 2,
+                3 2 2 2;
+
+         -fx-background-radius: 0;
+}
+
+.text-field:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+
+
+ /*******************************************************************************
+  *                                                                             *
+  * PopupMenu                                                                   *
+  *                                                                             *
+  ******************************************************************************/
+
+.context-menu {
+  /*  -fx-skin: "com.software4java.javafxnativethemes.mac.MacContextMenuSkin";*/
+    -fx-background-color: #9B9796,#F0F0F0,#E0E1E1,white,#F0F0F0;
+    -fx-background-insets: 0,1, 1 1 1 30, 1 1 1 31,1 1 1 32;
+    -fx-background-radius: 0;
+    -fx-padding: 4 2 4 2;
+}
+
+.context-menu .separator {
+    -fx-padding: 2 0 0 29;
+}
+
+.menu-item{
+     -fx-padding: 5 20 5 34;
+     -fx-font-size: 11px;
+     -fx-font-family: Arial;
+
+}
+
+.menu-item .label
+{
+    -fx-text-fill: black;
+}
+
+.menu-item:focused .label
+{
+     -fx-text-fill: black;
+}
+
+.menu-item:focused  {
+    -fx-background-color:
+        #A8D8EB,
+        white,
+        linear-gradient(#E7EFF3,#DBECF3);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 4,3,2;
+
+}
+
+.separator .line {
+     -fx-border-color: null;
+}
+
+.separator:horizontal .line {
+    -fx-background-color: #E1E1E1, #FFFFFF;
+    -fx-background-insets: 0, 1 0 0 0;
+    -fx-padding: 2 0 0 29;
+
+}
+
+/*Windows theme ends*/
+
+/*...................................................................................................*/
+
+/*
+ * This is an adjustment of the original modena.css for a consistent dark theme.
+ * Original modena.css here: https://gist.github.com/maxd/63691840fc372f22f470.
+ */
+
+/* Redefine base colors 
+.root {
+    -fx-base: rgb(50, 50, 50);
+    -fx-background: rgb(50, 50, 50);
+
+     make controls (buttons, thumb, etc.) slightly lighter 
+    -fx-color: derive(-fx-base, 10%);
+
+     text fields and table rows background 
+    -fx-control-inner-background: rgb(20, 20, 20);
+     version of -fx-control-inner-background for alternative rows 
+    -fx-control-inner-background-alt: derive(-fx-control-inner-background, 2.5%);
+
+     text colors depending on background's brightness 
+    -fx-light-text-color: rgb(220, 220, 220);
+    -fx-mid-text-color: rgb(100, 100, 100);
+    -fx-dark-text-color: rgb(20, 20, 20);
+
+     A bright blue for highlighting/accenting objects.  For example: selected
+     * text; selected items in menus, lists, trees, and tables; progress bars 
+    -fx-accent: rgb(0, 80, 100);
+
+     color of non-focused yet selected elements 
+    -fx-selection-bar-non-focused: rgb(50, 50, 50);
+}
+
+ Fix derived prompt color for text fields 
+.text-input {
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, +50%);
+}
+
+ Keep prompt invisible when focused (above color fix overrides it) 
+.text-input:focused {
+    -fx-prompt-text-fill: transparent;
+}
+
+ Fix scroll bar buttons arrows colors 
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, rgb(220, 220, 220);
+}
+
+.scroll-bar > .increment-button:hover > .increment-arrow,
+.scroll-bar > .decrement-button:hover > .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, rgb(240, 240, 240);
+}
+
+.scroll-bar > .increment-button:pressed > .increment-arrow,
+.scroll-bar > .decrement-button:pressed > .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, rgb(255, 255, 255);
+}
+*/
